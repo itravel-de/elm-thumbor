@@ -4,7 +4,7 @@ module Thumbor exposing
     , Attribute
     , size
     , sizeFixed
-    , SizeValue(..)
+    , Size(..)
     , manualCrop
     , Rectangle
     , horizontalAlign
@@ -42,7 +42,7 @@ module Thumbor exposing
 
 @docs size
 @docs sizeFixed
-@docs SizeValue
+@docs Size
 
 
 ## Cropping
@@ -138,7 +138,7 @@ type VerticalAlign
 
 
 {-| -}
-type SizeValue
+type Size
     = Fixed Int
     | Proportional
     | Original
@@ -196,7 +196,7 @@ url { baseUrl, key } attributes imageUrl =
 {-| Represents a Thumbor attribute, controlling how images are processed. See below for a list of available attribute constructors.
 -}
 type Attribute
-    = Size SizeValue SizeValue
+    = Size Size Size
     | Filters (List Filter)
     | FitIn FitInMode
     | Trim TrimSource Int
@@ -211,7 +211,7 @@ type Attribute
 Thumbor docs: <https://thumbor.readthedocs.io/en/latest/usage.html#image-size>
 
 -}
-size : SizeValue -> SizeValue -> Attribute
+size : Size -> Size -> Attribute
 size =
     Size
 
@@ -387,8 +387,8 @@ findSmartSegment =
         Nothing
 
 
-sizeValueToString : SizeValue -> String
-sizeValueToString value =
+sizeToString : Size -> String
+sizeToString value =
     case value of
         Fixed i ->
             String.fromInt i
@@ -406,7 +406,7 @@ findSizePathSegment =
         (\item acc ->
             case item of
                 Size width height ->
-                    Just (sizeValueToString width ++ "x" ++ sizeValueToString height)
+                    Just (sizeToString width ++ "x" ++ sizeToString height)
 
                 _ ->
                     acc
