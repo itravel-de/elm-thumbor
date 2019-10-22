@@ -504,7 +504,7 @@ upscale =
 
 {-| Adds a watermark to the image.
 
-Tests for adding a watermark on the bottom left with a vertical and horizontal distance of 25 pixels to the border:
+Example for adding a watermark on the bottom left with a vertical and horizontal distance of 25 pixels to the border:
 
     Thumbor.Filter.watermark
         { imageUrl = "https://example.com/watermark.png"
@@ -622,7 +622,7 @@ It is useful in case you have implemented your own Thumbor filters or to use any
 
 Before using this, check if there is a type safe implementation in this module and use that instead.
 
-Tests usage:
+Example usage:
 
     custom "noise" [ "40" ]
 
