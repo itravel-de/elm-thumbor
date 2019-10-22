@@ -11,9 +11,11 @@ API naming and usage to make mapping between the official documentation as easy 
 ## Example
 
 ```elm
-thumbor : List Thumbor.Attribute -> String -> String
-thumbor =
-    Thumbor.url { baseUrl = "https://example.com", key = Just "secret" }
+view : Model -> Html msg
+view model =
+    model.teaserImages
+        |> List.map (\imageUrl -> img [ src (scaleTeaserImage imageUrl) ] [])
+        |> div []
 
 
 scaleTeaserImage : String -> String
@@ -37,11 +39,9 @@ scaleTeaserImage =
         ]
 
 
-view : Model -> Html msg
-view model =
-    model.teaserImages
-        |> List.map (\imageUrl -> img [ src (scaleTeaserImage imageUrl) ] [])
-        |> div []
+thumbor : List Thumbor.Attribute -> String -> String
+thumbor =
+    Thumbor.url { baseUrl = "https://example.com", key = Just "secret" }
 ```
 
 ## Security Considerations
