@@ -6,7 +6,6 @@ module Thumbor exposing
     , sizeFixed
     , Size(..)
     , manualCrop
-    , Rectangle
     , horizontalAlign
     , HorizontalAlign(..)
     , verticalAlign
@@ -48,7 +47,6 @@ module Thumbor exposing
 ## Cropping
 
 @docs manualCrop
-@docs Rectangle
 @docs horizontalAlign
 @docs HorizontalAlign
 @docs verticalAlign
@@ -200,7 +198,7 @@ type Attribute
     | Filters (List Filter)
     | FitIn FitInMode
     | Trim TrimSource Int
-    | ManualCrop Rectangle
+    | ManualCrop { left : Int, top : Int, right : Int, bottom : Int }
     | HAlign HorizontalAlign
     | VAlign VerticalAlign
     | Smart
@@ -269,17 +267,9 @@ This crop is performed before the rest of the operations, so it can be used as a
 Thumbor docs: <https://thumbor.readthedocs.io/en/latest/usage.html#manual-crop>
 
 -}
-manualCrop : Rectangle -> Attribute
+manualCrop : { left : Int, top : Int, right : Int, bottom : Int } -> Attribute
 manualCrop =
     ManualCrop
-
-
-{-| A rectangle defined by its top-right and bottom-left pixel positions.
--}
-type alias Rectangle =
-    { topLeft : ( Int, Int )
-    , bottomRight : ( Int, Int )
-    }
 
 
 {-| Controls where the cropping will occur if some width needs to be trimmed. The default is `Center`.
@@ -457,21 +447,21 @@ findManualCropPathSegment =
     List.foldl
         (\item acc ->
             case item of
-                ManualCrop { topLeft, bottomRight } ->
+                ManualCrop { left, top, right, bottom } ->
                     let
-                        left =
-                            Tuple.first topLeft |> String.fromInt
+                        leftString =
+                            String.fromInt left
 
-                        top =
-                            Tuple.second topLeft |> String.fromInt
+                        topString =
+                            String.fromInt top
 
-                        right =
-                            Tuple.first bottomRight |> String.fromInt
+                        rightString =
+                            String.fromInt right
 
-                        bottom =
-                            Tuple.second bottomRight |> String.fromInt
+                        bottomString =
+                            String.fromInt bottom
                     in
-                    Just (left ++ "x" ++ top ++ ":" ++ right ++ "x" ++ bottom)
+                    Just (leftString ++ "x" ++ topString ++ ":" ++ rightString ++ "x" ++ bottomString)
 
                 _ ->
                     acc

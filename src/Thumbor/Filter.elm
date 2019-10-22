@@ -10,11 +10,10 @@ module Thumbor.Filter exposing
     , RoundCornersBackgroundColor(..)
     , format
     , ImageFormat(..)
-    , focal
-    , Rectangle
     , fill
     , FillMode(..)
     , autoJpg
+    , focal
     , blur
     , brightness
     , contrast
@@ -75,12 +74,6 @@ not to try to explain what the filters do in detail, but instead link to the off
 @docs ImageFormat
 
 
-## Focal Point
-
-@docs focal
-@docs Rectangle
-
-
 ## Fill
 
 @docs fill
@@ -90,14 +83,13 @@ not to try to explain what the filters do in detail, but instead link to the off
 ## Miscellaneous
 
 @docs autoJpg
-
+@docs focal
 @docs blur
 @docs brightness
 @docs contrast
 @docs convolution
 @docs equalize
 @docs extractFocal
-
 @docs grayscale
 @docs maxBytes
 @docs noUpscale
@@ -106,7 +98,6 @@ not to try to explain what the filters do in detail, but instead link to the off
 @docs quality
 @docs rgb
 @docs rotate
-
 @docs sharpen
 @docs stretch
 @docs stripExif
@@ -122,14 +113,6 @@ not to try to explain what the filters do in detail, but instead link to the off
 -}
 
 import Util
-
-
-{-| A rectangle defined by its top-left and bottom-right pixel positions.
--}
-type alias Rectangle =
-    { topLeft : ( Int, Int )
-    , bottomRight : ( Int, Int )
-    }
 
 
 {-| A filter that can be used with the [filters](Thumbor#filters) attribute. See the _Implementations_ section for details and available filters.
@@ -300,22 +283,22 @@ type FillMode
 Thumbor docs: <https://thumbor.readthedocs.io/en/latest/focal.html>
 
 -}
-focal : Rectangle -> Filter
-focal { topLeft, bottomRight } =
+focal : { left : Int, top : Int, right : Int, bottom : Int } -> Filter
+focal { left, top, right, bottom } =
     let
-        left =
-            Tuple.first topLeft |> String.fromInt
+        leftString =
+            String.fromInt left
 
-        top =
-            Tuple.second topLeft |> String.fromInt
+        topString =
+            String.fromInt top
 
-        right =
-            Tuple.first bottomRight |> String.fromInt
+        rightString =
+            String.fromInt right
 
-        bottom =
-            Tuple.second bottomRight |> String.fromInt
+        bottomString =
+            String.fromInt bottom
     in
-    Filter "focal" [ left ++ "x" ++ top ++ ":" ++ right ++ "x" ++ bottom ]
+    Filter "focal" [ leftString ++ "x" ++ topString ++ ":" ++ rightString ++ "x" ++ bottomString ]
 
 
 {-| Specifies the output format of the image.
