@@ -1,40 +1,12 @@
 module Thumbor.Filter exposing
     ( Filter
-    , backgroundColor
-    , BackgroundColor(..)
-    , watermark
-    , WatermarkDefinition
-    , WatermarkHorizontalPosition(..)
-    , WatermarkVerticalPosition(..)
-    , roundCorners
-    , RoundCornersBackgroundColor(..)
-    , format
-    , ImageFormat(..)
-    , fill
-    , FillMode(..)
-    , autoJpg
-    , focal
-    , blur
-    , brightness
-    , contrast
-    , convolution
-    , equalize
-    , extractFocal
-    , grayscale
-    , maxBytes
-    , noUpscale
-    , noise
-    , proportion
-    , quality
-    , rgb
-    , rotate
-    , sharpen
-    , stretch
-    , stripExif
-    , stripIcc
-    , upscale
-    , custom
-    , toString
+    , backgroundColor, BackgroundColor(..)
+    , watermark, WatermarkDefinition, WatermarkHorizontalPosition(..), WatermarkVerticalPosition(..)
+    , roundCorners, RoundCornersBackgroundColor(..)
+    , format, ImageFormat(..)
+    , fill, FillMode(..)
+    , autoJpg, focal, blur, brightness, contrast, convolution, equalize, extractFocal, grayscale, maxBytes, noUpscale, noise, proportion, quality, rgb, rotate, sharpen, stretch, stripExif, stripIcc, upscale
+    , custom, toString
     )
 
 {-|
@@ -50,65 +22,37 @@ not to try to explain what the filters do in detail, but instead link to the off
 
 ## Background Color
 
-@docs backgroundColor
-@docs BackgroundColor
+@docs backgroundColor, BackgroundColor
 
 
 ## Watermark
 
-@docs watermark
-@docs WatermarkDefinition
-@docs WatermarkHorizontalPosition
-@docs WatermarkVerticalPosition
+@docs watermark, WatermarkDefinition, WatermarkHorizontalPosition, WatermarkVerticalPosition
 
 
 ## Round Corners
 
-@docs roundCorners
-@docs RoundCornersBackgroundColor
+@docs roundCorners, RoundCornersBackgroundColor
 
 
 ## Image Format
 
-@docs format
-@docs ImageFormat
+@docs format, ImageFormat
 
 
 ## Fill
 
-@docs fill
-@docs FillMode
+@docs fill, FillMode
 
 
 ## Miscellaneous
 
-@docs autoJpg
-@docs focal
-@docs blur
-@docs brightness
-@docs contrast
-@docs convolution
-@docs equalize
-@docs extractFocal
-@docs grayscale
-@docs maxBytes
-@docs noUpscale
-@docs noise
-@docs proportion
-@docs quality
-@docs rgb
-@docs rotate
-@docs sharpen
-@docs stretch
-@docs stripExif
-@docs stripIcc
-@docs upscale
+@docs autoJpg, focal, blur, brightness, contrast, convolution, equalize, extractFocal, grayscale, maxBytes, noUpscale, noise, proportion, quality, rgb, rotate, sharpen, stretch, stripExif, stripIcc, upscale
 
 
 # Advanced
 
-@docs custom
-@docs toString
+@docs custom, toString
 
 -}
 

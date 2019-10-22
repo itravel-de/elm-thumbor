@@ -2,21 +2,11 @@ module Thumbor exposing
     ( url
     , Config
     , Attribute
-    , size
-    , sizeFixed
-    , Size(..)
-    , manualCrop
-    , horizontalAlign
-    , HorizontalAlign(..)
-    , verticalAlign
-    , VerticalAlign(..)
-    , trim
-    , trimSimple
-    , TrimSource(..)
-    , fitIn
-    , FitInMode(..)
-    , filters
-    , smart
+    , size, sizeFixed, Size(..)
+    , manualCrop, horizontalAlign, HorizontalAlign(..), verticalAlign, VerticalAlign(..)
+    , trim, trimSimple, TrimSource(..)
+    , fitIn, FitInMode(..)
+    , filters, smart
     )
 
 {-|
@@ -39,37 +29,27 @@ module Thumbor exposing
 
 ## Sizing
 
-@docs size
-@docs sizeFixed
-@docs Size
+@docs size, sizeFixed, Size
 
 
 ## Cropping
 
-@docs manualCrop
-@docs horizontalAlign
-@docs HorizontalAlign
-@docs verticalAlign
-@docs VerticalAlign
+@docs manualCrop, horizontalAlign, HorizontalAlign, verticalAlign, VerticalAlign
 
 
 ## Trimming
 
-@docs trim
-@docs trimSimple
-@docs TrimSource
+@docs trim, trimSimple, TrimSource
 
 
 ## Fitting
 
-@docs fitIn
-@docs FitInMode
+@docs fitIn, FitInMode
 
 
 ## Miscellaneous
 
-@docs filters
-@docs smart
+@docs filters, smart
 
 -}
 
