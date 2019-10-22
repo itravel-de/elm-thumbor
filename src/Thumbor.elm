@@ -85,7 +85,7 @@ import Util
 
 `key` contains your key for [URL signing](https://thumbor.readthedocs.io/en/latest/security.html#security). If `Nothing` is provided, URL signing will be disabled.
 
-️**Important Security Notice:** Since Elm is mostly used in front-end code, **your key will be exposed in clear-text to all clients**, nullifying the effect of this security measure.
+**Important Security Notice:** Since Elm is mostly used in front-end code, **your key will be exposed in clear-text to all clients**, nullifying the effect of this security measure.
 
 **Make sure you have an alternate concept to stop URL tampering!**
 
