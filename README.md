@@ -1,4 +1,6 @@
-# elm-thumbor
+# elm-thumbor 
+
+[![Build Status](https://travis-ci.com/itravel-de/elm-thumbor.svg?branch=master)](https://travis-ci.com/itravel-de/elm-thumbor)
 
 Generate [Thumbor](https://github.com/thumbor/thumbor) URLs with Elm.
 
