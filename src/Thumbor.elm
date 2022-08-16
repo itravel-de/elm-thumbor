@@ -54,6 +54,7 @@ module Thumbor exposing
 -}
 
 import HmacSha1
+import HmacSha1.Key
 import Thumbor.Filter exposing (Filter)
 import Url.Builder
 import Util
@@ -156,12 +157,9 @@ url { baseUrl, key } attributes imageUrl =
         hmacSignature =
             case key of
                 Just value ->
-                    HmacSha1.digest value pathSegments
+                    pathSegments
+                        |> HmacSha1.fromString (HmacSha1.Key.fromString value)
                         |> HmacSha1.toBase64
-                        |> Result.toMaybe
-                        -- This case should never happen, base64 encode itself cannot fail. We have to investigate why
-                        -- the HMAC library returns a Maybe here. Fallback is an unsafe Thumbor URL.
-                        |> Maybe.withDefault "unsafe"
                         |> String.replace "+" "-"
                         |> String.replace "/" "_"
 
