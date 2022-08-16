@@ -3,7 +3,7 @@
     "name": "itravel-de/elm-thumbor",
     "summary": "Generate Thumbor URLs with Elm.",
     "license": "MIT",
-    "version": "1.1.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "Thumbor",
         "Thumbor.Filter"
